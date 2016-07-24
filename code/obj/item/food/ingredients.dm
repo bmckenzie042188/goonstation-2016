@@ -62,6 +62,14 @@
 	desc = "Synthetic meat grown in hydroponics."
 	amount = 1
 
+	New()
+		..()
+		var/datum/reagents/R = new/datum/reagents(20)
+		reagents = R
+		R.my_atom = src
+		R.add_reagent("synthflesh", 2)
+
+
 /obj/item/reagent_containers/food/snacks/ingredient/meat/mysterymeat
 	name = "mystery meat"
 	desc = "What the fuck is this??"
