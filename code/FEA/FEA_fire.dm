@@ -28,6 +28,17 @@ turf
 			if(!air_contents)
 				return 0
 
+			var/melt = 1643.15 // default steel melting point
+			if (src.material && src.material.hasProperty(PROP_MELTING))
+				melt = src.material.getProperty(PROP_MELTING)
+			var/divisor = melt
+			if (exposed_temperature >= melt * 2)
+				var/chance = exposed_temperature / divisor
+				chance = min(chance, src:default_melt_cap)
+				if (prob(chance))
+					src.visible_message("<span style=\"color:red\">[src] melts!</span>")
+					src.burn_down()
+
 			if(active_hotspot)
 
 				if(locate(/obj/fire_foam) in src)

@@ -241,6 +241,9 @@ var/global/client/ff_debugger = null
 	icon_state = "engine"
 	thermal_conductivity = 0.025
 	heat_capacity = 325000
+	New()
+		..()
+		material = getCachedMaterial("bohrum")
 
 	allows_vehicles = 1
 

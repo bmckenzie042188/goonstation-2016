@@ -203,6 +203,10 @@
 	desc = "Terrestrial steel from Earth."
 	color = "#8C8C8C"
 	material_flags = MATERIAL_METAL
+	New()
+		setProperty(new/datum/material_property/melting{ value = T0C + 1643.15 }())
+		return ..()
+
 
 /datum/material/metal/mauxite
 	mat_id = "mauxite"
